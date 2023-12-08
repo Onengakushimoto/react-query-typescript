@@ -14,7 +14,7 @@ export function Home(): ReactElement {
         <Icon m={4} verticalAlign="top" as={GiFlowerPot} />
         Lazy Days Spa
       </Text>
-      <Text>Hours: limited</Text>
+      <Text>Hours: limited(check calender)</Text>
       <Text>Address: nearby</Text>
     </Stack>
   );
