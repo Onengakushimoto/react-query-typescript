@@ -1,4 +1,5 @@
 import {
+  fireEvent,
   // act,
   // fireEvent,
   screen,
@@ -18,7 +19,7 @@ jest.mock("../../user/hooks/useUser", () => ({
 }));
 
 test("Reserve appointment", async () => {
-  const user = userEvent.setup();
+  // const user = userEvent.setup();
   const { unmount } = renderWithQueryClient(
     <MemoryRouter>
       <Calendar />
@@ -30,7 +31,7 @@ test("Reserve appointment", async () => {
   });
 
   // click on the first one to reserve
-  await user.click(appointments[0]);
+  fireEvent.click(appointments[0]);
 
   // check for the toast alert
   const alertToast = await screen.findByText(
@@ -41,14 +42,14 @@ test("Reserve appointment", async () => {
   // close alert to keep state clean and wait for it to disappear
   const alertCloseButton = screen.getByRole("button", { name: "Close" });
   // alertCloseButton.click();
-  await user.click(alertCloseButton);
+  fireEvent.click(alertCloseButton);
 
   await waitForElementToBeRemoved(alertToast);
   unmount();
 });
 
 test("Cancel appointment", async () => {
-  const user = userEvent.setup();
+  // const user = userEvent.setup();
   const { unmount } = renderWithQueryClient(
     <MemoryRouter>
       <Calendar />
@@ -58,7 +59,7 @@ test("Cancel appointment", async () => {
     name: /\d\d? [ap]m\s+(scrub|facial|massage)/i,
   });
   // click on the first one to reserve
-  await user.click(appointments[0]);
+  fireEvent.click(appointments[0]);
   // check for the toast alert
   const alertToast = await screen.findByText(
     "You have reserved an appointment!!",
@@ -67,14 +68,14 @@ test("Cancel appointment", async () => {
   // close alert to keep state clean and wait for it to disappear
   const alertCloseButton = screen.getByRole("button", { name: "Close" });
   // alertCloseButton.click();
-  await user.click(alertCloseButton);
+  fireEvent.click(alertCloseButton);
   await waitForElementToBeRemoved(alertToast);
 
   const cancelButtons = await screen.findAllByRole("button", {
     name: /cancel appointment/i,
   });
   expect(cancelButtons).toHaveLength(2);
-  await user.click(cancelButtons[0]);
+  fireEvent.click(cancelButtons[0]);
   const alertToastCancel = await screen.findByText(
     "You have cancelled the appointment!",
   );
@@ -82,7 +83,7 @@ test("Cancel appointment", async () => {
 
   const alertCloseButton1 = screen.getByRole("button", { name: "Close" });
   // alertCloseButton.click();
-  await user.click(alertCloseButton1);
+  fireEvent.click(alertCloseButton1);
   await waitForElementToBeRemoved(alertToastCancel);
   unmount();
 });
