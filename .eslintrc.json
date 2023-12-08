@@ -38,7 +38,8 @@
         // "@typescript-eslint",
         "simple-import-sort",
         "prettier",
-        "react"
+        "react", 
+        "react-hooks"
     ],
     "env": {
         "browser": true,
@@ -86,6 +87,8 @@
         "no-shadow": "off",
         // "@typescript-eslint/no-shadow": "error",
         // "@typescript-eslint/ban-ts-comment": 0,
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
         "react/no-array-index-key": "off",
         "react/react-in-jsx-scope": "off",
         "prettier/prettier": [
