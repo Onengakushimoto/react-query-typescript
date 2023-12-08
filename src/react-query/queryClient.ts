@@ -1,11 +1,5 @@
 import { createStandaloneToast } from "@chakra-ui/react";
-import {
-  MutationCache,
-  Query,
-  QueryCache,
-  QueryClient,
-  QueryKey,
-} from "@tanstack/react-query";
+import { MutationCache, QueryCache, QueryClient } from "@tanstack/react-query";
 
 // import { User } from "../../shared/types";
 // import { clearStoredUser, getStoredUser, setStoredUser } from "../user-storage";

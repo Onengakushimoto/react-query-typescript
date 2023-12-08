@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import dayjs from "dayjs";
 
 import type { Appointment, User } from "../../../../shared/types";
 import { axiosInstance, getJWTHeader } from "../../../apiCallInstance";
